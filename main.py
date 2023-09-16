@@ -1,7 +1,7 @@
 import os
 import yaml
 import logging
-from xia_gpt.models import GptGroup
+from xia_gpt.models import GptGroup, GptActor
 
 
 def create_ou(ou_name: str, parent_name: str, sub_org: dict, visibility: str):
@@ -28,6 +28,16 @@ def sync_company_config():
                   company_config["visibility"])
 
 
+def sync_actors():
+    with open('config/actors.yaml', 'r') as fp:
+        actors_profile = yaml.safe_load(fp)
+    for actor_profile in actors_profile:
+        actor = GptActor.load(name=actor_profile["name"])
+        if not actor:
+            GptActor.from_display(**actor_profile).save()
+
+
 if __name__ == '__main__':
     assert os.environ.get("GITLAB_TOKEN")
-    sync_company_config()
+    # sync_company_config()
+    # sync_actors()
