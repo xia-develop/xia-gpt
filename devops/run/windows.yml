@@ -8,10 +8,10 @@ before_script:
   - Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
   - choco install -y python --version=3.9.12
 
-run:
+run_windows_free:
   extends:
     - .shared_windows_runners
-  stage: test
+  stage: run
   when: manual
   script:
     - $env:PATH = "$env:PATH;C:\Python39;C:\Python39\Scripts"
