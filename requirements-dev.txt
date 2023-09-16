@@ -1,0 +1,6 @@
+pytest
+pytest-cov
+pytest-asyncio
+coverage
+xia-prompts-metagpt
+xia-actor-openai

@@ -1,0 +1,24 @@
+.shared_windows_runners:
+  tags:
+  - shared-windows
+  - windows
+  - windows-1809
+
+before_script:
+  - Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+  - choco install -y python --version=3.9.12
+
+run:
+  extends:
+    - .shared_windows_runners
+  stage: test
+  when: manual
+  script:
+    - $env:PATH = "$env:PATH;C:\Python39;C:\Python39\Scripts"
+    - python -V
+    - python -m pip install -r requirements.txt
+    - python -m pip install -r requirements-dev.txt
+    - python -m pip install -r requirements-xia.txt
+    - coverage run -m pytest --log-cli-level=INFO tests/
+    - coverage report
+    - coverage xml

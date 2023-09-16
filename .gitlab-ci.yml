@@ -1,0 +1,6 @@
+stages:
+  - run
+
+include:
+  - local: 'devops/run/windows.yml'
+
