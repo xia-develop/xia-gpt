@@ -17,6 +17,4 @@ run_windows_free:
     - python -m pip install -r requirements.txt
     - python -m pip install -r requirements-dev.txt
     - python -m pip install -r requirements-xia.txt
-    - coverage run -m pytest --log-cli-level=INFO tests/
-    - coverage report
-    - coverage xml
+    - python main.py
