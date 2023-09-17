@@ -1,7 +1,13 @@
 import os
 import yaml
 import logging
-from xia_gpt.models import GptGroup, GptActor
+import asyncio
+from xia_composer import Template
+from xia_gpt.models import GptGroup, GptActor, GptTarget, GptKnowledge, GptCampaign
+
+
+class GptPrompts(Template):
+    """"""
 
 
 def create_ou(ou_name: str, parent_name: str, sub_org: dict, visibility: str):
@@ -37,7 +43,59 @@ def sync_actors():
             GptActor.from_display(**actor_profile).save()
 
 
+def init_jobs():
+    with open('config/jobs.yaml', 'r') as fp:
+        jobs_profile = yaml.safe_load(fp)
+    for job_profile in jobs_profile:
+        target = GptTarget.load(name=job_profile["project_name"])
+        if not target:
+            group = GptGroup.load(name=job_profile["organization_unit"])
+            if not group:
+                raise ValueError(f"Organization Unit {job_profile['organization_unit']} doesn't exist")
+            GptTarget(name=job_profile["project_name"], group_name=job_profile["organization_unit"],
+                      visibility=group.visibility).save()
+
+        # Case 1: It is a campaign
+        if "campaign_type" in job_profile:
+            campaign = GptCampaign.load(target=job_profile["project_name"], name=job_profile["job_name"])
+            if not campaign:
+                GptCampaign(target=job_profile["project_name"], name=job_profile["job_name"],
+                            owner=job_profile["owner_name"], campaign_type=job_profile["campaign_type"],
+                            description=job_profile["job_name"]).save()
+            owner = GptActor.load(name=job_profile["owner_name"])
+            if not owner:
+                raise ValueError(f"Actor {job_profile['owner_name']} is not found")
+            owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
+                          role="campaign_owner")
+        # Save the context to the mission
+        for context_key, context_data in job_profile.get("input_contexts", {}).items():
+            knowledge_node = GptKnowledge.load(target=job_profile["project_name"], key=context_key,
+                                               version=job_profile["job_name"])
+            if not knowledge_node:
+                GptKnowledge(target=job_profile["project_name"], key=context_key, version=job_profile["job_name"],
+                             value=context_data).save()
+
+
+async def team_working():
+    with open('config/actors.yaml', 'r') as fp:
+        actors_profile = yaml.safe_load(fp)
+    team_members = []
+    for actor_profile in actors_profile:
+        actor = GptActor.load(name=actor_profile["name"])
+        if actor:
+            team_members.append(actor)
+    task_list = []
+    for actor in team_members:
+        task_list.append(asyncio.create_task(actor.live()))
+    for task in task_list:
+        await task
+
+
 if __name__ == '__main__':
     assert os.environ.get("GITLAB_TOKEN")
     # sync_company_config()
     # sync_actors()
+    init_jobs()
+    for _ in range(15):
+        asyncio.run(team_working())
+        pass
