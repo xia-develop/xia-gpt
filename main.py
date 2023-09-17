@@ -19,7 +19,7 @@ def create_ou(ou_name: str, parent_name: str, sub_org: dict, visibility: str):
             create_ou(sub_ou, ou_name, sub_org[sub_ou], visibility)
 
 
-def sync_company_config():
+def init_company_config():
     """Create company organization units if not exists
 
     """
@@ -34,7 +34,7 @@ def sync_company_config():
                   company_config["visibility"])
 
 
-def sync_actors():
+def init_actors():
     with open('config/actors.yaml', 'r') as fp:
         actors_profile = yaml.safe_load(fp)
     for actor_profile in actors_profile:
@@ -46,6 +46,8 @@ def sync_actors():
 def init_jobs():
     with open('config/jobs.yaml', 'r') as fp:
         jobs_profile = yaml.safe_load(fp)
+    if not jobs_profile:
+        return  # Empty file, nothing to do
     for job_profile in jobs_profile:
         target = GptTarget.load(name=job_profile["project_name"])
         if not target:
@@ -93,8 +95,8 @@ async def team_working():
 
 if __name__ == '__main__':
     assert os.environ.get("GITLAB_TOKEN")
-    # sync_company_config()
-    # sync_actors()
+    init_company_config()
+    init_actors()
     init_jobs()
     for _ in range(15):
         asyncio.run(team_working())

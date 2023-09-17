@@ -1,7 +1,7 @@
-- project_name: starship-repairer
+- project_name: dino-dash
   organization_unit: games
   owner_name: owner-1
   job_name: init-project
   campaign_type: software_initialization
   input_contexts:
-    requirements/original_requirements: Create a game whose name is `Starship Repairer`. Navigate your way through a derelict spaceship, finding parts and tools to repair systems before the oxygen runs out
+    requirements/original_requirements: Create a game whose name is `Dino Dash`. Guide a lost baby dinosaur through a treacherous jungle, avoiding obstacles and predators to find its family
