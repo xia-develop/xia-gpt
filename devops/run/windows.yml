@@ -4,16 +4,14 @@
   - windows
   - windows-1809
 
-before_script:
-  - Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-  - choco install -y python --version=3.9.12
-
 run_windows_free:
   extends:
     - .shared_windows_runners
   stage: run
   when: manual
   script:
+    - Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+    - choco install -y python --version=3.9.12
     - $env:PATH = "$env:PATH;C:\Python39;C:\Python39\Scripts"
     - python -V
     - python -m pip install -r requirements.txt
