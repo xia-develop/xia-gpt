@@ -22,7 +22,7 @@ check_env_variable:
       else
         echo "The top-level group $GROUP_NAME does not exist on ${GITLAB_HOST} or it's private and the token doesn't have the necessary permissions."
         echo "Please create the top-level group $GROUP_NAME on ${GITLAB_HOST} and check the given token's permissions"
-        echo "The top-level group is used for representing the company. You could change the group name by modify the name field in the file `config/company.yaml` "
+        echo "The top-level group is used for representing the company. You could also change the group name by modifying the name in the file config/company.yaml"
         exit 1
       fi
     - |
