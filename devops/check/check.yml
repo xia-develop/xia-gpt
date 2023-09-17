@@ -13,7 +13,7 @@ check_env_variable:
         echo "GITLAB_TOKEN is set!"
       fi
     - |
-      GROUP_NAME=xia-company
+      GROUP_NAME=$(grep '^name: ' config/company.yaml | cut -d' ' -f2)
       GITLAB_ENDPOINT="https://gitlab.com/api/v4/groups/${GROUP_NAME}"
       RESPONSE_CODE=$(curl --write-out "%{http_code}" --silent --output /dev/null -H "Private-Token: $TOKEN" $GITLAB_ENDPOINT)
       if [ "$RESPONSE_CODE" = "200" ]; then
