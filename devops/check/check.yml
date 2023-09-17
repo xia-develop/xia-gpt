@@ -1,0 +1,21 @@
+stages:
+  - check
+
+check_env_variable:
+  stage: check
+  when: manual
+  script:
+    - |
+      if [ -z "$GITLAB_TOKEN" ]; then
+        echo "Error: Environment variable GITLAB_TOKEN is not set"
+        exit 1
+      else
+        echo "GITLAB_TOKEN is set!"
+      fi
+    - |
+      if [ -z "$OPENAI_API_KEY" ]; then
+        echo "Error: Environment variable OPENAI_API_KEY is not set"
+        exit 1
+      else
+        echo "OPENAI_API_KEY is set!"
+      fi
