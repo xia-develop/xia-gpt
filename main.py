@@ -1,4 +1,4 @@
-import os
+import logging
 import yaml
 import logging
 import asyncio
@@ -94,10 +94,11 @@ async def team_working():
 
 
 if __name__ == '__main__':
-    assert os.environ.get("GITLAB_TOKEN")
-    init_company_config()
-    init_actors()
-    init_jobs()
+    logging.basicConfig(level=logging.INFO)
+    # init_company_config()
+    # init_actors()
+    # init_jobs()
     for _ in range(15):
-        asyncio.run(team_working())
+        # asyncio.run(team_working())
         pass
+    logging.info("test")

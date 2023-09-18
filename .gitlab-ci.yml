@@ -5,3 +5,4 @@ stages:
 include:
   - local: 'devops/check/check.yml'
   - local: 'devops/run/windows.yml'
+  - local: 'devops/run/linux.yml'

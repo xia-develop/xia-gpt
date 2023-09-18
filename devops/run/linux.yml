@@ -1,0 +1,16 @@
+.shared_linux_runners:
+  tags:
+    - docker
+  image: python:3.9
+
+run_linux_premium:
+  extends:
+    - .shared_linux_runners
+  stage: run
+  when: manual
+  script:
+    - python -V
+    - python -m pip install -r requirements.txt
+    - python -m pip install -r requirements-dev.txt --upgrade --index-url https://__token__:${GITLAB_COM_TOKEN}@gitlab.com/api/v4/groups/67656209/-/packages/pypi/simple
+    - python -m pip install -r requirements-xia.txt --upgrade --index-url https://__token__:${GITLAB_COM_TOKEN}@gitlab.com/api/v4/groups/67656209/-/packages/pypi/simple
+    - python main.py
