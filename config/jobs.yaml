@@ -1,7 +1,7 @@
-- project_name: galactic-pizza-delivery
+- project_name: haunted-hotel
   organization_unit: games
   owner_name: owner-1
   job_name: init-project
   campaign_type: software_initialization
   input_contexts:
-    requirements/original_requirements: Create a game whose name is `Galactic Pizza Delivery`. Race against the clock to deliver interstellar pizzas across the galaxy while dodging asteroids and space pirates.
+    requirements/original_requirements: Create a game whose name is `Haunted Hotel`. As a paranormal investigator, explore eerie rooms and corridors to unveil the hotel's mysteries, all while evading ghostly apparitions.

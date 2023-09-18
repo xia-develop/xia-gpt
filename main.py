@@ -95,10 +95,9 @@ async def team_working():
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    # init_company_config()
-    # init_actors()
-    # init_jobs()
+    init_company_config()
+    init_actors()
+    init_jobs()
     for _ in range(15):
-        # asyncio.run(team_working())
+        asyncio.run(team_working())
         pass
-    logging.info("test")
