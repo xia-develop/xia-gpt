@@ -3,10 +3,11 @@ from xia_engine_gitlab import GitlabMilestoneEngine, GitlabMilestoneIssueEngine
 from xia_engine_gitlab import GitlabProjectEngine, GitlabCodeEngine, GitlabSnippetEngine
 from xia_engine_gitlab import GitlabIssueDiscussionEngine, GitlabIssueDiscussionNoteEngine
 from xia_engine_gitlab import GitlabGroupEngine, GitlabMrDiscussionEngine, GitlabMergeRequestEngine
+from xia_engine_gitlab_project import GitlabProjectMilestoneEngine
+from xia_engine_gitlab_project import GitlabProjectIssueNoteEngine, GitlabProjectMilestoneIssueEngine
+from xia_actor import JobLog, Job
+from xia_actor.jobs import *
 from xia_actor_openai import OpenaiActor
-
-
-GitlabProjectEngine.field_mapping = {"blue_labels": "mission_status"}
 
 
 class GptGroup(Group):
@@ -109,11 +110,39 @@ class GptCampaign(Campaign):
     _validation_class = GptValidation
 
 
-class GptActor(OpenaiActor):
-    _engine = GitlabSnippetEngine
+class GptJobLog(JobLog):
+    _engine = GitlabProjectIssueNoteEngine
     _address = {
-        "gitlab_snippet": {
+        "gitlab_project_issue_note": {
             "api_host": "gitlab.com",
-            "api_token": b"GITLAB_TOKEN"
+            "api_token": b"GITLAB_TOKEN",
+            "default_target": "x-i-a"
+        }
+    }
+
+
+class GptJob(Job):
+    _type_base = Job
+    _job_log_class = GptJobLog
+
+    _engine = GitlabProjectMilestoneIssueEngine
+    _address = {
+        "gitlab_project_milestone_issue": {
+            "api_host": "gitlab.com",
+            "api_token": b"GITLAB_TOKEN",
+            "default_target": "x-i-a"
+        }
+    }
+
+
+class GptActor(OpenaiActor):
+    _job_class = GptJob
+
+    _engine = GitlabProjectMilestoneEngine
+    _address = {
+        "gitlab_project_milestone": {
+            "api_host": "gitlab.com",
+            "api_token": b"GITLAB_TOKEN",
+            "default_target": "x-i-a"
         }
     }

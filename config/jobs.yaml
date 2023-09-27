@@ -1,7 +1,7 @@
-- project_name: haunted-hotel
+- project_name: robot-rumble-arena
   organization_unit: games
   owner_name: owner-1
   job_name: init-project
   campaign_type: software_initialization
   input_contexts:
-    requirements/original_requirements: Create a game whose name is `Haunted Hotel`. As a paranormal investigator, explore eerie rooms and corridors to unveil the hotel's mysteries, all while evading ghostly apparitions.
+    requirements/original_requirements: Create a game whose name is `Robot Rumble Arena`. Build and customize your robot, then enter the arena for explosive one-on-one battles against other mechanical gladiators.

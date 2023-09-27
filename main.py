@@ -69,6 +69,7 @@ def init_jobs():
                 raise ValueError(f"Actor {job_profile['owner_name']} is not found")
             owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
                           role="campaign_owner")
+
         # Save the context to the mission
         for context_key, context_data in job_profile.get("input_contexts", {}).items():
             knowledge_node = GptKnowledge.load(target=job_profile["project_name"], key=context_key,
@@ -95,9 +96,9 @@ async def team_working():
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    init_company_config()
-    init_actors()
-    init_jobs()
-    for _ in range(15):
+    # init_company_config()
+    # init_actors()
+    # init_jobs()
+    for _ in range(2):
         asyncio.run(team_working())
         pass
