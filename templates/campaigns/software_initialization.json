@@ -12,11 +12,17 @@
       "mission_type": "architecture_design",
       "upstream_steps": ["product_design"]
     },
+    "detailed_design": {
+      "stack": "full",
+      "type": "mission",
+      "mission_type": "detailed_design",
+      "upstream_steps": ["architecture_design"]
+    },
     "project_management": {
       "stack": "full",
       "type": "mission",
       "mission_type": "project_management",
-      "upstream_steps": ["architecture_design"]
+      "upstream_steps": ["detailed_design"]
     },
     "python_development": {
       "stack": "full",

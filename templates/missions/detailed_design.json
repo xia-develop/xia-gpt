@@ -1,0 +1,30 @@
+{
+  "domain": "software",
+  "skill": "architect",
+  "contexts": [
+    "requirements/original_requirements",
+    "design/implement_approach",
+    "design/data_structures_and_interface_definitions",
+    "design/program_call_flow"
+  ],
+  "tasks": [
+    {
+      "task_type": "Task",
+      "name": "design/python_package_name",
+      "title": "Python Package Name",
+      "required_contexts": [
+        "requirements/original_requirements"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "design/source_code_file_list",
+      "title": "Source Code File List",
+      "required_contexts": [
+        "design/implement_approach",
+        "design/data_structures_and_interface_definitions",
+        "design/program_call_flow"
+      ]
+    }
+  ]
+}

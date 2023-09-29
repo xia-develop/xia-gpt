@@ -115,6 +115,6 @@ if __name__ == '__main__':
     # init_company_config()
     init_actors(recreate=True)
     init_jobs(recreate=True)
-    for _ in range(20):
+    for _ in range(10):
         asyncio.run(team_working())
         pass
