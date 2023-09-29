@@ -7,7 +7,7 @@ from xia_gpt.models import GptGroup, GptActor, GptTarget, GptKnowledge, GptCampa
 
 
 class GptPrompts(Template):
-    """"""
+    """Register ./templates"""
 
 
 def create_ou(ou_name: str, parent_name: str, sub_org: dict, visibility: str):
