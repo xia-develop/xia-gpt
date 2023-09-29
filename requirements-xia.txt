@@ -1,3 +1,4 @@
 xia-composer
 xia-engine-gitlab
+xia-engine-gitlab-project
 xia-actor-openai
