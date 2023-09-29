@@ -1,24 +1,26 @@
-- name: owner-1
-  default_mindset_param: '{"model": "gpt-3.5-turbo"}'
-  general_level: 0
-  domain: ''
-  review_capacity: 0
-  skills: [ ]
-  jobs: [ ]
-  work_capacity: 0
-- name: worker-1
-  default_mindset_param: '{"model": "gpt-3.5-turbo"}'
-  general_level: 0
-  domain: software
-  review_capacity: 0
-  skills: [ ]
-  jobs: [ ]
-  work_capacity: 5
-- name: reviewer-1
-  default_mindset_param: '{"model": "gpt-3.5-turbo"}'
-  general_level: 0
-  domain: ''
-  review_capacity: 3
-  skills: [ ]
-  jobs: [ ]
-  work_capacity: 0
+team_name: xia-team
+actors:
+  - name: owner-1
+    default_mindset_param: '{"model": "gpt-3.5-turbo"}'
+    general_level: 0
+    domain: ''
+    review_capacity: 0
+    skills: [ ]
+    jobs: [ ]
+    work_capacity: 0
+  - name: worker-1
+    default_mindset_param: '{"model": "gpt-3.5-turbo"}'
+    general_level: 0
+    domain: software
+    review_capacity: 0
+    skills: [ ]
+    jobs: [ ]
+    work_capacity: 5
+  - name: reviewer-1
+    default_mindset_param: '{"model": "gpt-3.5-turbo"}'
+    general_level: 0
+    domain: ''
+    review_capacity: 3
+    skills: [ ]
+    jobs: [ ]
+    work_capacity: 0

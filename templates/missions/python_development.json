@@ -11,6 +11,9 @@
     "design/source_code_file_list",
     "design/program_call_flow"
   ],
+  "reviews": [
+    "code_review"
+  ],
   "tasks": [
     {% for task in development_task_list if task.endswith('.py') %}
     {

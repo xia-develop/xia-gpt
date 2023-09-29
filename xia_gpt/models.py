@@ -1,3 +1,4 @@
+import yaml
 from xia_composer import Group, Target, Campaign, Mission, Dialog, Review, Turn, KnowledgeNode, Validation
 from xia_engine_gitlab import GitlabMilestoneEngine, GitlabMilestoneIssueEngine
 from xia_engine_gitlab import GitlabProjectEngine, GitlabCodeEngine, GitlabSnippetEngine
@@ -8,6 +9,10 @@ from xia_engine_gitlab_project import GitlabProjectIssueNoteEngine, GitlabProjec
 from xia_actor import JobLog, Job
 from xia_actor.jobs import *
 from xia_actor_openai import OpenaiActor
+
+
+with open('config/actors.yaml', 'r') as fp:
+    actors_profile = yaml.safe_load(fp)
 
 
 class GptGroup(Group):
@@ -116,7 +121,7 @@ class GptJobLog(JobLog):
         "gitlab_project_issue_note": {
             "api_host": "gitlab.com",
             "api_token": b"GITLAB_TOKEN",
-            "default_target": "x-i-a"
+            "default_target": actors_profile["team_name"]
         }
     }
 
@@ -130,7 +135,7 @@ class GptJob(Job):
         "gitlab_project_milestone_issue": {
             "api_host": "gitlab.com",
             "api_token": b"GITLAB_TOKEN",
-            "default_target": "x-i-a"
+            "default_target": actors_profile["team_name"]
         }
     }
 
@@ -143,6 +148,6 @@ class GptActor(OpenaiActor):
         "gitlab_project_milestone": {
             "api_host": "gitlab.com",
             "api_token": b"GITLAB_TOKEN",
-            "default_target": "x-i-a"
+            "default_target": actors_profile["team_name"]
         }
     }

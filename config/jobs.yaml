@@ -1,6 +1,9 @@
 - project_name: robot-rumble-arena
   organization_unit: games
   owner_name: owner-1
+  reviewers:
+    code_review:
+      - reviewer-1
   job_name: init-project
   campaign_type: software_initialization
   input_contexts:

@@ -34,23 +34,32 @@ def init_company_config():
                   company_config["visibility"])
 
 
-def init_actors():
+def init_actors(recreate: bool = False):
     with open('config/actors.yaml', 'r') as fp:
         actors_profile = yaml.safe_load(fp)
-    for actor_profile in actors_profile:
+    # Create team project if not exists
+    team = GptTarget.load(name=actors_profile["team_name"])
+    if recreate:
+        team.delete()
+    if not team or recreate:
+        GptTarget(name=actors_profile["team_name"], group_name="").save()
+    # Create actors if not exists
+    for actor_profile in actors_profile["actors"]:
         actor = GptActor.load(name=actor_profile["name"])
         if not actor:
             GptActor.from_display(**actor_profile).save()
 
 
-def init_jobs():
+def init_jobs(recreate: bool = False):
     with open('config/jobs.yaml', 'r') as fp:
         jobs_profile = yaml.safe_load(fp)
     if not jobs_profile:
         return  # Empty file, nothing to do
     for job_profile in jobs_profile:
         target = GptTarget.load(name=job_profile["project_name"])
-        if not target:
+        if recreate:
+            target.delete()
+        if not target or recreate:
             group = GptGroup.load(name=job_profile["organization_unit"])
             if not group:
                 raise ValueError(f"Organization Unit {job_profile['organization_unit']} doesn't exist")
@@ -69,6 +78,13 @@ def init_jobs():
                 raise ValueError(f"Actor {job_profile['owner_name']} is not found")
             owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
                           role="campaign_owner")
+            for review_type, reviewers in job_profile.get("reviewers", {}).items():
+                for reviewer_name in reviewers:
+                    reviewer = GptActor.load(name=reviewer_name)
+                    if not reviewer:
+                        raise ValueError(f"Actor {reviewer} is not found")
+                    reviewer.add_job(target=job_profile["project_name"], object_name=review_type,
+                                     role="target_reviewer")
 
         # Save the context to the mission
         for context_key, context_data in job_profile.get("input_contexts", {}).items():
@@ -83,7 +99,7 @@ async def team_working():
     with open('config/actors.yaml', 'r') as fp:
         actors_profile = yaml.safe_load(fp)
     team_members = []
-    for actor_profile in actors_profile:
+    for actor_profile in actors_profile["actors"]:
         actor = GptActor.load(name=actor_profile["name"])
         if actor:
             team_members.append(actor)
@@ -97,8 +113,8 @@ async def team_working():
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     # init_company_config()
-    # init_actors()
-    # init_jobs()
-    for _ in range(2):
+    init_actors(recreate=True)
+    init_jobs(recreate=True)
+    for _ in range(20):
         asyncio.run(team_working())
         pass
