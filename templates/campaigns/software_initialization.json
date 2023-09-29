@@ -24,6 +24,14 @@
       "mission_type": "project_management",
       "upstream_steps": ["detailed_design"]
     },
+    "pytest_development": {
+      "stack": "full",
+      "type": "mission",
+      "prompt_type": "develop_python",
+      "mission_type": "python_development",
+      "template_contexts": ["design/python_test_file_list"],
+      "upstream_steps": ["detailed_design"]
+    },
     "python_development": {
       "stack": "full",
       "type": "mission",

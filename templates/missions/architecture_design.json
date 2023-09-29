@@ -9,6 +9,14 @@
   "tasks": [
     {
       "task_type": "Task",
+      "name": "design/python_package_name",
+      "title": "Python Package Name",
+      "required_contexts": [
+        "requirements/original_requirements"
+      ]
+    },
+    {
+      "task_type": "Task",
       "name": "design/implement_approach",
       "title": "Implement Approach",
       "required_contexts": [

@@ -1,0 +1,11 @@
+{% block format %}
+```python
+[
+    "tests/test_simple.py",
+]
+```
+{% endblock %}
+
+{% block guide %}
+Provided as Python list[str], the list of test files needed to test the python package.
+{% endblock %}

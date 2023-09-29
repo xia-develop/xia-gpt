@@ -39,7 +39,7 @@ def init_actors(recreate: bool = False):
         actors_profile = yaml.safe_load(fp)
     # Create team project if not exists
     team = GptTarget.load(name=actors_profile["team_name"])
-    if recreate:
+    if team and recreate:
         team.delete()
     if not team or recreate:
         GptTarget(name=actors_profile["team_name"], group_name="").save()
@@ -57,7 +57,7 @@ def init_jobs(recreate: bool = False):
         return  # Empty file, nothing to do
     for job_profile in jobs_profile:
         target = GptTarget.load(name=job_profile["project_name"])
-        if recreate:
+        if target and recreate:
             target.delete()
         if not target or recreate:
             group = GptGroup.load(name=job_profile["organization_unit"])
@@ -115,6 +115,6 @@ if __name__ == '__main__':
     # init_company_config()
     init_actors(recreate=True)
     init_jobs(recreate=True)
-    for _ in range(10):
+    for _ in range(8):
         asyncio.run(team_working())
         pass
