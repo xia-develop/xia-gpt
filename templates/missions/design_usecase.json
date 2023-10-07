@@ -1,0 +1,52 @@
+{
+  "domain": "software",
+  "skill": "developer_python",
+  "contexts": [
+    "design/general/product_goals",
+    "workspace/user_stories",
+    "workspace/requirement_analysis",
+    "workspace/original_requirements",
+    "workspace/implement_approach",
+    "design/general/data_structures_and_interface_definitions",
+    "design/general/usecase_list",
+    "design/general/python_module_list"
+  ],
+  "tasks": [
+    {% for usecase in usecase_list %}
+    {
+      "task_type": "Task",
+      "name": "design/usecase/program_call_flow",
+      "sub_name": "{{ usecase[0] }}",
+      "title": "Program Call Flow: {{ usecase[0] }}",
+      "target": "design/usecases/{{ usecase[0] }}/program_call_flow",
+      "required_contexts": [
+        "design/general/product_goals",
+        "workspace/user_stories",
+        "workspace/requirement_analysis",
+        "workspace/original_requirements",
+        "workspace/implement_approach",
+        "design/general/data_structures_and_interface_definitions",
+        "design/general/usecase_list",
+        "design/general/python_module_list"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "design/usecase/implement_approach",
+      "sub_name": "{{ usecase[0] }}",
+      "title": "Implement Approach: {{ usecase[0] }}",
+      "target": "design/usecases/{{ usecase[0] }}/implement_approach",
+      "required_contexts": [
+        "design/general/product_goals",
+        "workspace/user_stories",
+        "workspace/requirement_analysis",
+        "workspace/original_requirements",
+        "workspace/implement_approach",
+        "design/general/data_structures_and_interface_definitions",
+        "design/general/usecase_list",
+        "design/general/python_module_list"
+      ]
+    }{{ ", " if not loop.last else "" }}
+    {% endfor %}
+  ]
+}

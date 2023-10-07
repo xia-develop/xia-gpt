@@ -1,0 +1,15 @@
+{% block format %}
+```mermaid
+classDiagram
+    class Game{
+        +int score
+    }
+    ...
+    Game "1" -- "1" Food: has
+```
+{% endblock %}
+
+{% block guide %}
+* Use mermaid classDiagram code syntax. The data structures SHOULD BE VERY DETAILED and the API should be comprehensive with a complete design.
+* Complete the given data structure and interface definition with the given use-case program call flows by adding new data attributes or api definitions
+{% endblock %}

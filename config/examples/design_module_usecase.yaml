@@ -1,0 +1,12 @@
+- project_name: snake-cli
+  organization_unit: games
+  owner_name: owner-1
+  reviewers:
+    code_review:
+      - reviewer-1
+  job_name: design_module_usecase
+  mission_type: design_module_usecase
+  max_task_per_round: 1
+  template_contexts:
+    - design/general/python_module_list
+    - design/general/usecase_list

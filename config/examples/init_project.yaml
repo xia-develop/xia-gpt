@@ -1,7 +1,10 @@
-- project_name: starship-repairer
+- project_name: snake-cli
   organization_unit: games
   owner_name: owner-1
+  reviewers:
+    code_review:
+      - reviewer-1
   job_name: init-project
   campaign_type: software_initialization
   input_contexts:
-    requirements/original_requirements: Create a game whose name is `Starship Repairer`. Navigate your way through a derelict spaceship, finding parts and tools to repair systems before the oxygen runs out
+    workspace/original_requirements: Create a game whose name is `Snake CLI`. Snake CLI is a command-line version of the classic arcade game "Snake."

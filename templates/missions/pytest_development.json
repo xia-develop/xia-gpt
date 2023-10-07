@@ -12,7 +12,7 @@
     "design/program_call_flow"
   ],
   "tasks": [
-    {% for task in python_test_file_list, if task.endswith('.py') %}
+    {% for task in python_test_file_list if task.endswith('.py') %}
     {
       "task_type": "Task",
       "name": "develop/python_pytest",
@@ -26,7 +26,6 @@
         "design/data_structures_and_interface_definitions",
         "design/program_call_flow",
         "design/logic_analysis",
-        "design/development_task_list",
         "design/shared_knowledge"
       ]
     }{{ ", " if not loop.last else "" }}

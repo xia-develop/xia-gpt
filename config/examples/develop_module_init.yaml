@@ -1,0 +1,11 @@
+- project_name: snake-cli
+  organization_unit: games
+  owner_name: owner-1
+  reviewers:
+    code_review:
+      - reviewer-1
+  job_name: develop_module_init
+  mission_type: develop_module_init
+  max_task_per_round: 1
+  template_contexts:
+    - design/general/python_module_list

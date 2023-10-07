@@ -1,4 +1,4 @@
-- project_name: robot-rumble-arena
+- project_name: snake-cli
   organization_unit: games
   owner_name: owner-1
   reviewers:
@@ -7,4 +7,4 @@
   job_name: init-project
   campaign_type: software_initialization
   input_contexts:
-    requirements/original_requirements: Create a game whose name is `Robot Rumble Arena`. Build and customize your robot, then enter the arena for explosive one-on-one battles against other mechanical gladiators.
+    workspace/original_requirements: Create a game whose name is `Snake CLI`. Snake CLI is a command-line version of the classic arcade game "Snake."

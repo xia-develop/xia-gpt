@@ -1,0 +1,31 @@
+{
+  "domain": "software",
+  "skill": "developer_python",
+  "contexts": [
+    "design/general/product_goals",
+    "workspace/user_stories",
+    "workspace/requirement_analysis",
+    "workspace/original_requirements",
+    "workspace/implement_approach",
+    "design/general/data_structures_and_interface_definitions"
+  ],
+  "tasks": [
+    {% for module in python_module_list %}
+    {
+      "task_type": "Task",
+      "name": "design/module/module_data_structures_and_interface_definitions",
+      "sub_name": "{{ module }}",
+      "title": "Data Structures: {{ module[0] }}",
+      "target": "design/modules/{{ module[0] }}/data_structures_and_interface_definitions",
+      "required_contexts": [
+        "design/general/product_goals",
+        "workspace/user_stories",
+        "workspace/requirement_analysis",
+        "workspace/original_requirements",
+        "workspace/implement_approach",
+        "design/general/data_structures_and_interface_definitions"
+      ]
+    }{{ ", " if not loop.last else "" }}
+    {% endfor %}
+  ]
+}

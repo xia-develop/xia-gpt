@@ -1,0 +1,10 @@
+- project_name: snake-cli
+  organization_unit: games
+  owner_name: owner-1
+  reviewers:
+    code_review:
+      - reviewer-1
+  job_name: design_usecase
+  mission_type: design_usecase
+  template_contexts:
+    - design/general/usecase_list

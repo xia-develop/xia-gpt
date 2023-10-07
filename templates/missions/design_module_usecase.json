@@ -1,0 +1,29 @@
+{
+  "domain": "software",
+  "skill": "developer_python",
+  "contexts": [
+    "design/general/product_goals",
+    {% for usecase in usecase_list %}
+    "design/usecases/{{ usecase[0] }}/program_call_flow",
+    "design/usecases/{{ usecase[0] }}/implement_approach",
+    {% endfor %}
+    "design/general/data_structures_and_interface_definitions"
+  ],
+  "tasks": [
+    {% for usecase in usecase_list %}
+    {
+      "task_type": "Optimizer",
+      "name": "design/general/data_structures_and_interface_definitions",
+      "sub_name": "{{ usecase[0] }}",
+      "title": "Updated Data Structures and Interface Definitions [{{ loop.index }}]",
+      "target": "design/general/data_structures_and_interface_definitions",
+      "required_contexts": [
+        "design/general/product_goals",
+        "design/usecases/{{ usecase[0] }}/program_call_flow",
+        "design/usecases/{{ usecase[0] }}/implement_approach",
+        "design/general/data_structures_and_interface_definitions"
+      ]
+    }{{ ", " if not loop.last else "" }}
+    {% endfor %}
+  ]
+}

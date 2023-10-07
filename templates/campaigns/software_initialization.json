@@ -1,44 +1,23 @@
 {
   "steps": {
-    "product_design": {
+    "design_product": {
       "stack": "full",
       "type": "mission",
-      "mission_type": "product_design",
+      "mission_type": "design_product",
       "upstream_steps": []
     },
-    "architecture_design": {
+    "design_general": {
       "stack": "full",
       "type": "mission",
-      "mission_type": "architecture_design",
-      "upstream_steps": ["product_design"]
+      "mission_type": "design_general",
+      "upstream_steps": ["design_product"]
     },
-    "detailed_design": {
+    "design_usecase": {
       "stack": "full",
       "type": "mission",
-      "mission_type": "detailed_design",
-      "upstream_steps": ["architecture_design"]
-    },
-    "project_management": {
-      "stack": "full",
-      "type": "mission",
-      "mission_type": "project_management",
-      "upstream_steps": ["detailed_design"]
-    },
-    "pytest_development": {
-      "stack": "full",
-      "type": "mission",
-      "prompt_type": "develop_python",
-      "mission_type": "pytest_development",
-      "template_contexts": ["design/python_test_file_list"],
-      "upstream_steps": ["detailed_design"]
-    },
-    "python_development": {
-      "stack": "full",
-      "type": "mission",
-      "prompt_type": "develop_python",
-      "mission_type": "python_development",
-      "template_contexts": ["design/development_task_list"],
-      "upstream_steps": ["project_management"]
+      "mission_type": "design_usecase",
+      "template_contexts": ["design/general/usecase_list"],
+      "upstream_steps": ["design_general"]
     }
   }
 }

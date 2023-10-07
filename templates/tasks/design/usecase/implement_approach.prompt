@@ -1,0 +1,7 @@
+{% block format %}
+We will ...
+{% endblock %}
+
+{% block guide %}
+Provide as Plain text. Analyze the difficult points of the requirements to realize the given usercase.
+{% endblock %}

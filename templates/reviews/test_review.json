@@ -1,0 +1,12 @@
+{
+  "domain": "software",
+  "skill": "developer_python",
+  "tasks": [
+    {
+      "type": "Task",
+      "name": "reviews/coverage_check",
+      "title": "Coverage Check"
+    }
+  ],
+  "pass_criteria": "Test covers all important program logic"
+}

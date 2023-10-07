@@ -12,3 +12,10 @@ classDiagram
 {% block guide %}
 Use mermaid classDiagram code syntax, including classes (INCLUDING __init__ method) and functions (with type annotations), CLEARLY MARK the RELATIONSHIPS between classes, and comply with PEP8 standards. The data structures SHOULD BE VERY DETAILED and the API should be comprehensive with a complete design.
 {% endblock %}
+
+{% block optimizer %}
+This is a rework, the based mermaid classDiagram code has already been given in the context
+* Complete the given data structure and interface definition with the given usecase informations
+* Please check and complete the definition of classes, attributes and functions.
+* The data structures SHOULD BE VERY DETAILED and the API should be comprehensive with a complete design.
+{% endblock %}

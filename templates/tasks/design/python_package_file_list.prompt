@@ -7,5 +7,5 @@
 {% endblock %}
 
 {% block guide %}
-Provided as Python list[str], the list of ONLY REQUIRED files needed to write the program(LESS IS MORE!). Including python package's path and write __init__.py
+Provided as Python list[str], the list of ONLY REQUIRED files needed to write the program(LESS IS MORE!). Including python package's path
 {% endblock %}

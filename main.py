@@ -1,9 +1,9 @@
-import logging
+import argparse
 import yaml
 import logging
 import asyncio
 from xia_composer import Template
-from xia_gpt.models import GptGroup, GptActor, GptTarget, GptKnowledge, GptCampaign
+from xia_gpt.models import GptGroup, GptActor, GptTarget, GptKnowledge, GptCampaign, GptMission, GptJob
 
 
 class GptPrompts(Template):
@@ -50,16 +50,16 @@ def init_actors(recreate: bool = False):
             GptActor.from_display(**actor_profile).save()
 
 
-def init_jobs(recreate: bool = False):
+def init_jobs(recreate_target: bool = False):
     with open('config/jobs.yaml', 'r') as fp:
         jobs_profile = yaml.safe_load(fp)
     if not jobs_profile:
         return  # Empty file, nothing to do
     for job_profile in jobs_profile:
         target = GptTarget.load(name=job_profile["project_name"])
-        if target and recreate:
+        if target and recreate_target:
             target.delete()
-        if not target or recreate:
+        if not target or recreate_target:
             group = GptGroup.load(name=job_profile["organization_unit"])
             if not group:
                 raise ValueError(f"Organization Unit {job_profile['organization_unit']} doesn't exist")
@@ -78,15 +78,34 @@ def init_jobs(recreate: bool = False):
                 raise ValueError(f"Actor {job_profile['owner_name']} is not found")
             owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
                           role="campaign_owner")
-            for review_type, reviewers in job_profile.get("reviewers", {}).items():
-                for reviewer_name in reviewers:
-                    reviewer = GptActor.load(name=reviewer_name)
-                    if not reviewer:
-                        raise ValueError(f"Actor {reviewer} is not found")
-                    reviewer.add_job(target=job_profile["project_name"], object_name=review_type,
-                                     role="target_reviewer")
+        # Case 2: It is a mission
+        elif "mission_type" in job_profile:
+            mission = GptMission.load(target=job_profile["project_name"], name=job_profile["job_name"])
+            if mission:
+                for job in GptJob.objects(target=job_profile["project_name"], object_name=job_profile["job_name"]):
+                    job.delete()
+                mission.delete()
+            GptMission(target=job_profile["project_name"], name=job_profile["job_name"],
+                       owner=job_profile["owner_name"], mission_type=job_profile["mission_type"],
+                       skip_validation=job_profile.get("skip_validation", False),
+                       max_task_per_round=job_profile.get("max_task_per_round", None),
+                       template_contexts=job_profile["template_contexts"]).save()
+            owner = GptActor.load(name=job_profile["owner_name"])
+            if not owner:
+                raise ValueError(f"Actor {job_profile['owner_name']} is not found")
+            owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
+                          role="mission_owner")
 
-        # Save the context to the mission
+        # Review Settings
+        for review_type, reviewers in job_profile.get("reviewers", {}).items():
+            for reviewer_name in reviewers:
+                reviewer = GptActor.load(name=reviewer_name)
+                if not reviewer:
+                    raise ValueError(f"Actor {reviewer} is not found")
+                reviewer.add_job(target=job_profile["project_name"], object_name=review_type,
+                                 role="target_reviewer")
+
+        # Initial Contents
         for context_key, context_data in job_profile.get("input_contexts", {}).items():
             knowledge_node = GptKnowledge.load(target=job_profile["project_name"], key=context_key,
                                                version=job_profile["job_name"])
@@ -112,9 +131,20 @@ async def team_working():
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    # init_company_config()
-    init_actors(recreate=True)
-    init_jobs(recreate=True)
-    for _ in range(8):
+
+    parser = argparse.ArgumentParser(description='Processing job configurations')
+    parser.add_argument('-n', '--round', type=int, default=1, help='Round of range')
+    parser.add_argument('--skip-sync-company', action='store_true', help='Synchronize Company Structure')
+    parser.add_argument('--recreate-actors', action='store_true', help='Skip all initialization')
+    parser.add_argument('--recreate-projects', action='store_true', help='Recreate Projects')
+    parser.add_argument('--work-only', action='store_true', help='Recreate Projects')
+    args = parser.parse_args()
+
+    if not args.work_only:
+        if not args.skip_sync_company:
+            init_company_config()
+        init_actors(recreate=args.recreate_actors)
+        init_jobs(recreate_target=args.recreate_projects)
+    for _ in range(args.round):
         asyncio.run(team_working())
         pass
