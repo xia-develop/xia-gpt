@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run_windows_replay_project:
+  run_windows_replay_mission:
     runs-on: windows-latest
     steps:
     - name: Checkout repository
