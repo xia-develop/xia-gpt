@@ -11,7 +11,15 @@
 
 
 ## Quick Start - GitHub Actions
-https://github.com/x-i-a/xia-gpt/assets/128282444/4f416902-7c9d-45c6-ab62-d33f9d931809
+1. Fork repository, generating Gitlab access Token and save it as GitHub secret.
+
+    https://github.com/x-i-a/xia-gpt/assets/128282444/4f416902-7c9d-45c6-ab62-d33f9d931809
+
+2. Company configuration and run the first Hello-World Job
+
+    https://github.com/x-i-a/xia-gpt/assets/128282444/653baa85-89e7-4033-9d48-ded5986ac133
+
+
 
 ## Quick Start - Local Machine
 Due to required python package's OS limitation. xia-gpt is only compatible on Windows or macOS machines.
