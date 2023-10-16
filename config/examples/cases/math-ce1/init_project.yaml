@@ -6,7 +6,5 @@
       - reviewer-1
   job_name: init-project
   campaign_type: initial/software_initialization
-  campaign_contexts:
-    - design/general/usecase_list
   input_contexts:
     workspace/original_requirements: I need an application which could help generate a math pdf which contains 40 questions. Each question only contains addition and minus for number less than 20.

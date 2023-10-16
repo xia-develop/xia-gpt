@@ -1,0 +1,17 @@
+{% block format %}
+```python
+"""
+flask
+"""
+```
+{% endblock %}
+
+{% block guide %}
+python encoded string provided in requirements.txt format
+{% endblock %}
+
+{% block optimizer %}
+By checking the given code, please find all necessary 3rd-party packages used in these codes.
+If some of them are missing in the given required python third party packages list, complete the list.
+Python third party packages list should be in python encoded string provided in requirements.txt format, assure all necessary 3rd-party package are covered.
+{% endblock %}

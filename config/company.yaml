@@ -8,6 +8,7 @@ organization:
     marketing: {}
   product_sectors:
     games: {}
+    educations: {}
     utilities: {}
     web_apps: {}
     mobile_apps: {}

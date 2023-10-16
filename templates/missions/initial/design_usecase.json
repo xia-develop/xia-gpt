@@ -1,6 +1,6 @@
 {
   "domain": "software",
-  "skill": "developer_python",
+  "skill": "architect",
   "contexts": [
     "design/general/product_goals",
     "workspace/user_stories",
@@ -12,13 +12,12 @@
     "design/general/python_module_list"
   ],
   "tasks": [
-    {% for usecase in usecase_list %}
     {
       "task_type": "Task",
       "name": "design/usecase/program_call_flow",
-      "sub_name": "{{ usecase[0] }}",
-      "title": "Program Call Flow: {{ usecase[0] }}",
-      "target": "design/usecases/{{ usecase[0] }}/program_call_flow",
+      "sub_name": "{{ usecase }}",
+      "title": "Program Call Flow: {{ usecase }}",
+      "target": "design/usecases/{{ usecase }}/program_call_flow",
       "required_contexts": [
         "design/general/product_goals",
         "workspace/user_stories",
@@ -33,9 +32,9 @@
     {
       "task_type": "Task",
       "name": "design/usecase/implement_approach",
-      "sub_name": "{{ usecase[0] }}",
-      "title": "Implement Approach: {{ usecase[0] }}",
-      "target": "design/usecases/{{ usecase[0] }}/implement_approach",
+      "sub_name": "{{ usecase }}",
+      "title": "Implement Approach: {{ usecase }}",
+      "target": "design/usecases/{{ usecase }}/implement_approach",
       "required_contexts": [
         "design/general/product_goals",
         "workspace/user_stories",
@@ -46,7 +45,17 @@
         "design/general/usecase_list",
         "design/general/python_module_list"
       ]
-    }{{ ", " if not loop.last else "" }}
-    {% endfor %}
+    },
+    {
+      "task_type": "Optimizer",
+      "name": "design/general/data_structures_and_interface_definitions",
+      "title": "Data Structures And Interface Definitions",
+      "required_contexts": [
+        "design/general/data_structures_and_interface_definitions",
+        "design/usecases/{{ usecase }}/program_call_flow",
+        "design/usecases/{{ usecase }}/implement_approach",
+        "design/general/python_module_list"
+      ]
+    }
   ]
 }

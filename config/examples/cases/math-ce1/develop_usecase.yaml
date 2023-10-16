@@ -1,0 +1,13 @@
+- project_name: math-ce1
+  organization_unit: educations
+  owner_name: owner-1
+  reviewers:
+    code_review:
+      - reviewer-1
+  job_name: develop_usecase
+  mission_type: develop_usecase
+  template_contexts:
+    - design/general/python_package_name
+    - design/usecases/math_question_generator/python_module_list
+  runtime_variables:
+    usecase: math_question_generator

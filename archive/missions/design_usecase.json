@@ -1,0 +1,99 @@
+{
+  "domain": "software",
+  "skill": "architect",
+  "pattern": {
+    "pattern_type": "python"
+  },
+  "contexts": [
+    "design/general/product_goals",
+    "workspace/user_stories",
+    "workspace/requirement_analysis",
+    "workspace/original_requirements",
+    "workspace/implement_approach",
+    "design/general/data_structures_and_interface_definitions",
+    "design/general/usecase_list",
+    "design/general/python_module_list"
+  ],
+  "tasks": [
+    {
+      "task_type": "Task",
+      "name": "design/usecase/program_call_flow",
+      "sub_name": "{{ usecase }}",
+      "title": "Program Call Flow: {{ usecase }}",
+      "target": "design/usecases/{{ usecase }}/program_call_flow",
+      "required_contexts": [
+        "design/general/product_goals",
+        "workspace/user_stories",
+        "workspace/requirement_analysis",
+        "workspace/original_requirements",
+        "workspace/implement_approach",
+        "design/general/data_structures_and_interface_definitions",
+        "design/general/usecase_list",
+        "design/general/python_module_list"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "design/usecase/implement_approach",
+      "sub_name": "{{ usecase }}",
+      "title": "Implement Approach: {{ usecase }}",
+      "target": "design/usecases/{{ usecase }}/implement_approach",
+      "required_contexts": [
+        "design/general/product_goals",
+        "workspace/user_stories",
+        "workspace/requirement_analysis",
+        "workspace/original_requirements",
+        "workspace/implement_approach",
+        "design/general/data_structures_and_interface_definitions",
+        "design/general/usecase_list",
+        "design/general/python_module_list"
+      ]
+    },
+    {
+      "task_type": "Optimizer",
+      "name": "design/general/data_structures_and_interface_definitions",
+      "title": "Data Structures And Interface Definitions",
+      "required_contexts": [
+        "design/general/data_structures_and_interface_definitions",
+        "design/usecases/{{ usecase }}/program_call_flow",
+        "design/usecases/{{ usecase }}/implement_approach",
+        "design/general/python_module_list"
+      ]
+    },
+    {
+      "task_type": "Optimizer",
+      "name": "design/general/required_python_third_party_packages",
+      "title": "Required Python Third Party Packages",
+      "required_contexts": [
+        "design/general/required_python_third_party_packages",
+        "design/general/python_module_list",
+        "design/general/data_structures_and_interface_definitions",
+        "design/usecases/{{ usecase }}/program_call_flow",
+        "design/usecases/{{ usecase }}/implement_approach"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "design/usecase/python_module_list",
+      "title": "Modules to be Modified",
+      "target": "design/usecases/{{ usecase }}/python_module_list",
+      "required_contexts": [
+        "design/general/python_module_list",
+        "design/general/data_structures_and_interface_definitions",
+        "design/usecases/{{ usecase }}/program_call_flow",
+        "design/usecases/{{ usecase }}/implement_approach"
+      ]
+    },
+    {
+      "task_type": "Optimizer",
+      "name": "design/general/python_module_list",
+      "title": "New Total Python Module List",
+      "required_contexts": [
+        "design/general/python_module_list",
+        "design/general/data_structures_and_interface_definitions",
+        "design/usecases/{{ usecase }}/program_call_flow",
+        "design/usecases/{{ usecase }}/implement_approach"
+      ]
+    }
+  ]
+}

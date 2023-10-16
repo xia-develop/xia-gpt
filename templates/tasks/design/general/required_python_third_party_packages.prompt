@@ -1,0 +1,16 @@
+{% block format %}
+```python
+"""
+flask
+"""
+```
+{% endblock %}
+
+{% block guide %}
+python encoded string provided in requirements.txt format
+{% endblock %}
+
+{% block optimizer %}
+By checking the given code, please find and all necessary 3rd-party packages used in these codes in requirements.txt format.
+Make sure that the package list doesn't contain standard python modules
+{% endblock %}

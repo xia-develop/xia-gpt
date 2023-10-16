@@ -1,0 +1,10 @@
+{% block format %}
+```python
+import pytest
+...
+```
+{% endblock %}
+
+{% block guide %}
+Write pytest test code with triple quote to test the related python module.
+{% endblock %}

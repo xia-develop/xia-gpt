@@ -1,6 +1,9 @@
 {
   "domain": "software",
   "skill": "architect",
+  "pattern": {
+    "pattern_type": "python"
+  },
   "contexts": [
     "design/general/product_goals",
     "workspace/user_stories",

@@ -1,12 +1,7 @@
 - project_name: math-ce1
   organization_unit: educations
   owner_name: owner-1
-  reviewers:
-    code_review:
-      - reviewer-1
-  job_name: init-project
-  campaign_type: initial/software_initialization
-  campaign_contexts:
-    - design/general/usecase_list
+  job_name: requirement_analysis
+  mission_type: initial/requirement_analysis
   input_contexts:
     workspace/original_requirements: I need an application which could help generate a math pdf which contains 40 questions. Each question only contains addition and minus for number less than 20.

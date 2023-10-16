@@ -11,13 +11,6 @@
       "type": "mission",
       "mission_type": "design_general",
       "upstream_steps": ["design_product"]
-    },
-    "design_usecase": {
-      "stack": "full",
-      "type": "mission",
-      "mission_type": "design_usecase",
-      "template_contexts": ["design/general/usecase_list"],
-      "upstream_steps": ["design_general"]
     }
   }
 }

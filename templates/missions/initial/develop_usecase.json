@@ -1,0 +1,56 @@
+{
+  "domain": "software",
+  "skill": "developer_python",
+  "pattern": {
+    "pattern_type": "python"
+  },
+  "contexts": [
+    "design/general/data_structures_and_interface_definitions",
+    "design/general/python_module_list",
+    "design/usecases/{{ usecase }}/program_call_flow",
+    "design/usecases/{{ usecase }}/implement_approach"
+  ],
+  "tasks": [
+    {% for module in python_module_list %}
+    {
+      "task_type": "Task",
+      "name": "develop/python_general",
+      "sub_name": "{{ module[0] }}.py",
+      "title": "Code: {{ module[0] }}.py",
+      "target": "code/{{ python_package_name }}/{{ module[0] }}.py",
+      "required_contexts": [
+        "design/general/data_structures_and_interface_definitions",
+        "design/general/python_module_list",
+        "design/usecases/{{ usecase }}/program_call_flow",
+        "design/usecases/{{ usecase }}/implement_approach",
+        "code/{{ python_package_name }}/{{ module[0] }}.py"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "develop/python_pytest",
+      "sub_name": "test_{{ module[0] }}.py",
+      "title": "Code: test_{{ module[0] }}.py",
+      "target": "code/tests/unit/test_{{ module[0] }}.py",
+      "required_contexts": [
+        "design/general/data_structures_and_interface_definitions",
+        "design/usecases/{{ usecase }}/program_call_flow",
+        "design/usecases/{{ usecase }}/implement_approach",
+        "code/{{ python_package_name }}/{{ module[0] }}.py",
+        "code/tests/unit/test_{{ module[0] }}.py"
+      ]
+    },
+    {% endfor %}
+    {
+      "task_type": "Optimizer",
+      "name": "design/general/required_python_third_party_packages",
+      "title": "Required Python Third Party Packages",
+      "required_contexts": [
+        {% for module in python_module_list %}
+        "code/{{ python_package_name }}/{{ module[0] }}.py",
+        {% endfor %}
+        "design/general/required_python_third_party_packages"
+      ]
+    }
+  ]
+}

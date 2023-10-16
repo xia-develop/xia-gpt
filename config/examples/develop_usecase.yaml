@@ -1,0 +1,13 @@
+- project_name: snake-cli
+  organization_unit: games
+  owner_name: owner-1
+  reviewers:
+    code_review:
+      - reviewer-1
+  job_name: develop_usecase
+  mission_type: develop_usecase
+  template_contexts:
+    - design/general/python_package_name
+    - design/usecases/move_snake/python_module_list
+  runtime_variables:
+    usecase: move_snake

@@ -4,6 +4,7 @@ import logging
 import asyncio
 from xia_composer import Template
 from xia_gpt.models import GptGroup, GptActor, GptTarget, GptKnowledge, GptCampaign, GptMission, GptJob
+from xia_gpt.patterns import GptPythonPattern
 
 
 class GptPrompts(Template):
@@ -15,8 +16,8 @@ def create_ou(ou_name: str, parent_name: str, sub_org: dict, visibility: str):
     if not ou:
         GptGroup(name=ou_name, parent_name=parent_name, visibility=visibility).save()
         logging.info(f"Organization Unit {ou_name} under {parent_name} created.")
-        for sub_ou in sub_org:
-            create_ou(sub_ou, ou_name, sub_org[sub_ou], visibility)
+    for sub_ou in sub_org:
+        create_ou(sub_ou, ou_name, sub_org[sub_ou], visibility)
 
 
 def init_company_config():
@@ -69,15 +70,25 @@ def init_jobs(recreate_target: bool = False):
         # Case 1: It is a campaign
         if "campaign_type" in job_profile:
             campaign = GptCampaign.load(target=job_profile["project_name"], name=job_profile["job_name"])
-            if not campaign:
+            if not campaign:  # Case 1.1: New Campaign
                 GptCampaign(target=job_profile["project_name"], name=job_profile["job_name"],
                             owner=job_profile["owner_name"], campaign_type=job_profile["campaign_type"],
+                            campaign_contexts=job_profile.get("campaign_contexts", []),
                             description=job_profile["job_name"]).save()
-            owner = GptActor.load(name=job_profile["owner_name"])
-            if not owner:
-                raise ValueError(f"Actor {job_profile['owner_name']} is not found")
-            owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
-                          role="campaign_owner")
+                owner = GptActor.load(name=job_profile["owner_name"])
+                if not owner:
+                    raise ValueError(f"Actor {job_profile['owner_name']} is not found")
+                owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
+                              role="campaign_owner")
+            else:  # Case 1.2: Try replay all current missions
+                for mission in GptMission.objects(target=job_profile["project_name"], campaign=campaign.name,
+                                                  status="opened"):
+                    campaign.step_status = [step for step in campaign.step_status if step.mission_name != mission.name]
+                    for job in GptJob.objects(target=job_profile["project_name"], object_name=mission.name):
+                        job.delete()
+                    mission.delete()
+                campaign.save()
+
         # Case 2: It is a mission
         elif "mission_type" in job_profile:
             mission = GptMission.load(target=job_profile["project_name"], name=job_profile["job_name"])
@@ -89,7 +100,8 @@ def init_jobs(recreate_target: bool = False):
                        owner=job_profile["owner_name"], mission_type=job_profile["mission_type"],
                        skip_validation=job_profile.get("skip_validation", False),
                        max_task_per_round=job_profile.get("max_task_per_round", None),
-                       template_contexts=job_profile["template_contexts"]).save()
+                       runtime_variables=job_profile.get("runtime_variables", {}),
+                       template_contexts=job_profile.get("template_contexts", [])).save()
             owner = GptActor.load(name=job_profile["owner_name"])
             if not owner:
                 raise ValueError(f"Actor {job_profile['owner_name']} is not found")

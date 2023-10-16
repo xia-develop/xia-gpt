@@ -1,5 +1,5 @@
-- project_name: snake-cli
-  organization_unit: games
+- project_name: math-ce1
+  organization_unit: educations
   owner_name: owner-1
   reviewers:
     code_review:
@@ -7,4 +7,4 @@
   job_name: design_usecase
   mission_type: design_usecase
   runtime_variables:
-    usecase: move_snake
+    usecase: math_question_generator

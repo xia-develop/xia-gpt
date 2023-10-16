@@ -1,7 +1,7 @@
 import yaml
 from xia_composer import Group, Target, Campaign, Mission, Dialog, Review, Turn, KnowledgeNode, Validation
 from xia_engine_gitlab import GitlabMilestoneEngine, GitlabMilestoneIssueEngine
-from xia_engine_gitlab import GitlabProjectEngine, GitlabCodeEngine, GitlabSnippetEngine
+from xia_engine_gitlab import GitlabProjectEngine, GitlabCodeEngine
 from xia_engine_gitlab import GitlabIssueDiscussionEngine, GitlabIssueDiscussionNoteEngine
 from xia_engine_gitlab import GitlabGroupEngine, GitlabMrDiscussionEngine, GitlabMergeRequestEngine
 from xia_engine_gitlab_project import GitlabProjectMilestoneEngine
@@ -67,6 +67,7 @@ class GptTurn(Turn):
 
 class GptKnowledge(KnowledgeNode):
     _engine = GitlabCodeEngine
+    _search_engine = GitlabCodeEngine
     _address = {
         "gitlab_code": {
             "api_host": "gitlab.com",
