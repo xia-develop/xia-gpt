@@ -13,6 +13,11 @@
 ## Quick Start - GitHub Actions
 
 
+## Quick Start - Local Machine
+Due to required python package's OS limitation. xia-gpt is only compatible on Windows or macOS machines.
+1. install dependencies
+2. 
+
 ## Product feature
 * Much like AutoGPT, they can produce complex outputs from simple instructions using a prompt/answer mechanism.
 * Every prompt/answer is executed by either an AI Agent or a human. The AI Agent operates in a manner similar to humans and offers a range of settings.
