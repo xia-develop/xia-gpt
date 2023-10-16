@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../xia-universe/xia-actor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../xia-universe/xia-actor-openai" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../xia-universe/xia-composer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../xia-universe/xia-engine" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../xia-universe/xia-engine-gitlab" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../xia-universe/xia-engine-gitlab-project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../xia-universe/xia-gpt-prompts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../xia-universe/xia-pattern" vcs="Git" />
+  </component>
+</project>

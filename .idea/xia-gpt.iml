@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (xia-gpt)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="xia-composer" />
+    <orderEntry type="module" module-name="xia-engine-gitlab" />
+    <orderEntry type="module" module-name="xia-engine" />
+    <orderEntry type="module" module-name="xia-actor" />
+    <orderEntry type="module" module-name="xia-engine-gitlab-project" />
+    <orderEntry type="module" module-name="xia-pattern" />
+    <orderEntry type="module" module-name="xia-actor-openai" />
+    <orderEntry type="module" module-name="xia-gpt-prompts" />
+  </component>
+</module>
