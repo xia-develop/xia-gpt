@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block guide %}
+The python module to be developed under the given package.
 Provided as a Python list[str, str]. the first is module name, the second is class name should be implemented in this module.
 {% endblock %}
 
