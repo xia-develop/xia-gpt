@@ -17,4 +17,4 @@ run_windows_free:
     - python -m pip install -r requirements.txt
     - python -m pip install -r requirements-dev.txt
     - python -m pip install -r requirements-xia.txt
-    - python main.py
+    - python main.py --recreate-actors --recreate-projects -n 4
