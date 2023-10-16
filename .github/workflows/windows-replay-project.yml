@@ -1,0 +1,17 @@
+name: Windows Run Initial
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run_windows_replay_project:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Environment Preparations
+      uses: ./.github/actions/windows-preparation
+
+    - name: Run Application
+      run: python main.py --skip-sync-company --recreate-actors --recreate-projects -n 4
