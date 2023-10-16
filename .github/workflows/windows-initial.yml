@@ -12,3 +12,6 @@ jobs:
 
     - name: Environment Preparations
       uses: ./.github/actions/windows-preparation
+
+    - name: Run Application
+      run: python main.py --recreate-actors --recreate-projects -n 4
