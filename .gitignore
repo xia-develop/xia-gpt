@@ -2,7 +2,7 @@
 tests/debug/
 
 # Archived Files
-archive/
+../../xia-universe/xia-gpt-prompts/archive/
 
 # output file
 output/
