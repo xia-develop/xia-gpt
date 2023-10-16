@@ -3,11 +3,13 @@ import yaml
 import logging
 import asyncio
 from xia_composer import Template
+from xia_actor import JobTemplate
+from xia_pattern import PatternTemplate
 from xia_gpt.models import GptGroup, GptActor, GptTarget, GptKnowledge, GptCampaign, GptMission, GptJob
 from xia_gpt.patterns import GptPythonPattern
 
 
-class GptPrompts(Template):
+class GptPrompts(JobTemplate, PatternTemplate):
     """Register ./templates"""
 
 
