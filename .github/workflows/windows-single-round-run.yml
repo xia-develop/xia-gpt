@@ -1,4 +1,4 @@
-name: Windows Run Initial
+name: Windows Single Round Run
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: Windows Run Initial
+name: Windows Replay Project
 
 on:
   workflow_dispatch:
