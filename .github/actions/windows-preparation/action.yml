@@ -1,11 +1,8 @@
-name: 'Shared Steps'
-description: 'Reusable steps'
+name: 'Windows Preparation'
+description: 'Windows Preparation For Running xia-gpt'
 runs:
   using: "composite"
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
