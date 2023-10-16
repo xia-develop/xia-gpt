@@ -6,6 +6,9 @@ on:
 jobs:
   run_windows_single_round_run:
     runs-on: windows-latest
+    env:
+      GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
