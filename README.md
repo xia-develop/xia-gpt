@@ -11,7 +11,7 @@
 
 
 ## Quick Start - GitHub Actions
-
+https://github.com/x-i-a/xia-gpt/assets/128282444/4f416902-7c9d-45c6-ab62-d33f9d931809
 
 ## Quick Start - Local Machine
 Due to required python package's OS limitation. xia-gpt is only compatible on Windows or macOS machines.

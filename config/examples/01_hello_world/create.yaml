@@ -1,5 +1,5 @@
 - project_name: hello-world
-  organization_unit: demos
+  organization_unit: demo
   owner_name: owner-1
   job_name: init-project
   campaign_type: software/python/simple/create

@@ -36,5 +36,4 @@
       "upstream_steps": ["design_usecase_{{ loop.index }}"]
     }{{ ", " if not loop.last else "" }}
     {% endfor %}
-  }
-}
+c

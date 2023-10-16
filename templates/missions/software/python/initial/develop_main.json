@@ -1,0 +1,19 @@
+{
+  "domain": "software",
+  "skill": "product_manager",
+  "contexts": [
+    "workspace/original_requirements"
+  ],
+  "tasks": [
+    {
+      "task_type": "Task",
+      "name": "develop/python_general",
+      "sub_name": "main.py",
+      "title": "Code: main.py",
+      "target": "code/main.py",
+      "required_contexts": [
+        "workspace/original_requirements"
+      ]
+    }
+  ]
+}

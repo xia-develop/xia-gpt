@@ -2,13 +2,5 @@ title: X-I-A
 name: xia-company
 visibility: public
 organization:
-  executives: {}
-  functional_departments:
-    human_resources: {}
-    marketing: {}
   product_sectors:
-    games: {}
-    educations: {}
-    utilities: {}
-    web_apps: {}
-    mobile_apps: {}
+    demos: {}
