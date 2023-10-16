@@ -3,7 +3,7 @@
 * A collaborative workspace where human and AI contributions are equally valued.
 * A framework designed to simplify tasks. Adequate context and strong inferential capabilities ensure task success.
 * Continuously evolving to decrease human involvement. Reaching 0% signifies the achievement of General AI.
-* Compatible with all missions, not limited to development tasks.
+* Highly configurable and compatible with all missions, not limited to just development tasks.
 
 ## Quick Start Prerequisite
 * A gitlab account (free-tier compatible) with personal token. Could either be gitlab SaaS or self-manged instance.
