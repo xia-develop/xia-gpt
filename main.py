@@ -76,6 +76,7 @@ def init_jobs(recreate_target: bool = False):
                 GptCampaign(target=job_profile["project_name"], name=job_profile["job_name"],
                             owner=job_profile["owner_name"], campaign_type=job_profile["campaign_type"],
                             campaign_contexts=job_profile.get("campaign_contexts", []),
+                            runtime_variables=job_profile.get("runtime_variables", {}),
                             description=job_profile["job_name"]).save()
                 owner = GptActor.load(name=job_profile["owner_name"])
                 if not owner:

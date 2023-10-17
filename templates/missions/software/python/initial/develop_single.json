@@ -8,9 +8,9 @@
     {
       "task_type": "Task",
       "name": "develop/python_general",
-      "sub_name": "main.py",
-      "title": "Code: main.py",
-      "target": "code/main.py",
+      "sub_name": "{{ filename }}",
+      "title": "Code: {{ filename }}",
+      "target": "code/{{ filename }}",
       "required_contexts": [
         "workspace/original_requirements"
       ]

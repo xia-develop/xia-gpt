@@ -3,7 +3,10 @@
     "develop_main": {
       "stack": "full",
       "type": "mission",
-      "mission_type": "software/python/initial/develop_main",
+      "mission_type": "software/python/initial/develop_single",
+      "runtime_variables": {
+        "filename": "{{ filename }}"
+      },
       "upstream_steps": []
     }
   }
