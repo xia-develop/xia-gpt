@@ -48,9 +48,9 @@ def init_actors(recreate: bool = False):
         GptTarget(name=actors_profile["team_name"], group_name="").save()
     # Create actors if not exists
     for actor_profile in actors_profile["actors"]:
-        actor = Actor.load(name=actor_profile["name"])
+        actor = XiaActor.load(name=actor_profile["name"])
         if not actor:
-            new_actor = Actor.from_display(**actor_profile)
+            new_actor = XiaActor.from_display(**actor_profile)
             new_actor.save()
 
 
@@ -79,7 +79,7 @@ def init_jobs(recreate_target: bool = False):
                             campaign_contexts=job_profile.get("campaign_contexts", []),
                             runtime_variables=job_profile.get("runtime_variables", {}),
                             description=job_profile["job_name"]).save()
-                owner = Actor.load(name=job_profile["owner_name"])
+                owner = XiaActor.load(name=job_profile["owner_name"])
                 if not owner:
                     raise ValueError(f"Actor {job_profile['owner_name']} is not found")
                 owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
@@ -106,7 +106,7 @@ def init_jobs(recreate_target: bool = False):
                        max_task_per_round=job_profile.get("max_task_per_round", None),
                        runtime_variables=job_profile.get("runtime_variables", {}),
                        template_contexts=job_profile.get("template_contexts", [])).save()
-            owner = Actor.load(name=job_profile["owner_name"])
+            owner = XiaActor.load(name=job_profile["owner_name"])
             if not owner:
                 raise ValueError(f"Actor {job_profile['owner_name']} is not found")
             owner.add_job(target=job_profile["project_name"], object_name=job_profile["job_name"],
@@ -115,7 +115,7 @@ def init_jobs(recreate_target: bool = False):
         # Review Settings
         for review_type, reviewers in job_profile.get("reviewers", {}).items():
             for reviewer_name in reviewers:
-                reviewer = Actor.load(name=reviewer_name)
+                reviewer = XiaActor.load(name=reviewer_name)
                 if not reviewer:
                     raise ValueError(f"Actor {reviewer} is not found")
                 reviewer.add_job(target=job_profile["project_name"], object_name=review_type,
@@ -135,7 +135,7 @@ async def team_working():
         actors_profile = yaml.safe_load(fp)
     team_members = []
     for actor_profile in actors_profile["actors"]:
-        actor = Actor.load(name=actor_profile["name"])
+        actor = XiaActor.load(name=actor_profile["name"])
         if actor:
             team_members.append(actor)
     task_list = []

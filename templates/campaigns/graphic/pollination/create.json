@@ -1,0 +1,13 @@
+{
+  "steps": {
+    "graphic_simple": {
+      "stack": "full",
+      "type": "mission",
+      "mission_type": "graphic/pollination/create_simple",
+      "runtime_variables": {
+        "filename": "{{ filename }}"
+      },
+      "upstream_steps": []
+    }
+  }
+}

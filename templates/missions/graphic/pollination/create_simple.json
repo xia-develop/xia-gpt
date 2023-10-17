@@ -1,0 +1,19 @@
+{
+  "domain": "graphic",
+  "skill": "graphic_designer",
+  "contexts": [
+    "workspace/original_requirements"
+  ],
+  "tasks": [
+    {
+      "task_type": "Task",
+      "name": "graphic/create_by_url",
+      "sub_name": "{{ filename }}",
+      "title": "Image: {{ filename }}",
+      "target": "code/{{ filename }}",
+      "required_contexts": [
+        "workspace/original_requirements"
+      ]
+    }
+  ]
+}

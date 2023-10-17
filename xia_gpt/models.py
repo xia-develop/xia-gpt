@@ -8,7 +8,7 @@ from xia_engine_gitlab_project import GitlabProjectMilestoneEngine
 from xia_engine_gitlab_project import GitlabProjectIssueNoteEngine, GitlabProjectMilestoneIssueEngine
 from xia_actor import JobLog, Job, Actor
 from xia_actor.jobs import *
-from xia_actor_openai import GptActor
+from xia_actor_openai import GptActor, PollinationActor
 
 
 with open('config/actors.yaml', 'r') as fp:

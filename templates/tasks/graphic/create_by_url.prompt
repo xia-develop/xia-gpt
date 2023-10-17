@@ -1,0 +1,8 @@
+{% block format %}
+![Image](https://www.abc.com/image-location.png)
+
+{% endblock %}
+
+{% block guide %}
+Needing an image file which meets the best the given context
+{% endblock %}
