@@ -3,7 +3,7 @@
     "graphic_simple": {
       "stack": "full",
       "type": "mission",
-      "mission_type": "graphic/pollination/create_simple",
+      "mission_type": "graphic/simple/create",
       "runtime_variables": {
         "filename": "{{ filename }}"
       },

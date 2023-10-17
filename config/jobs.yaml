@@ -2,8 +2,8 @@
   organization_unit: demos
   owner_name: owner-1
   job_name: init-graphic
-  campaign_type: graphic/pollination/create
+  campaign_type: graphic/simple/create
   runtime_variables:
     filename: home.png
   input_contexts:
-    workspace/original_requirements: painting of a depressed robot.
+    workspace/original_requirements: AI collaborates with human
