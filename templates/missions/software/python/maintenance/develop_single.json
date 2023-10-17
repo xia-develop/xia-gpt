@@ -1,0 +1,20 @@
+{
+  "domain": "software",
+  "skill": "product_manager",
+  "contexts": [
+    "workspace/original_requirements"
+  ],
+  "tasks": [
+    {
+      "task_type": "Optimizer",
+      "name": "develop/python_general",
+      "sub_name": "{{ filename }}",
+      "title": "Code: {{ filename }}",
+      "target": "code/{{ filename }}",
+      "required_contexts": [
+        "code/{{ filename }}",
+        "workspace/original_requirements"
+      ]
+    }
+  ]
+}

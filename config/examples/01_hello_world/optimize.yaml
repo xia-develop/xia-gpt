@@ -1,0 +1,9 @@
+- project_name: hello-world
+  organization_unit: demos
+  owner_name: owner-1
+  job_name: optimize-project
+  campaign_type: software/python/simple/optimize
+  runtime_variables:
+    filename: main.py
+  input_contexts:
+    workspace/original_requirements: Print an extra message "Hi World".

@@ -1,9 +1,9 @@
 {
   "steps": {
-    "develop_single": {
+    "maintenance_single": {
       "stack": "full",
       "type": "mission",
-      "mission_type": "software/python/initial/develop_single",
+      "mission_type": "software/python/maintenance/develop_single",
       "runtime_variables": {
         "filename": "{{ filename }}"
       },

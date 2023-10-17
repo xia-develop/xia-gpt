@@ -6,9 +6,9 @@ from xia_engine_gitlab import GitlabIssueDiscussionEngine, GitlabIssueDiscussion
 from xia_engine_gitlab import GitlabGroupEngine, GitlabMrDiscussionEngine, GitlabMergeRequestEngine
 from xia_engine_gitlab_project import GitlabProjectMilestoneEngine
 from xia_engine_gitlab_project import GitlabProjectIssueNoteEngine, GitlabProjectMilestoneIssueEngine
-from xia_actor import JobLog, Job
+from xia_actor import JobLog, Job, Actor
 from xia_actor.jobs import *
-from xia_actor_openai import OpenaiActor
+from xia_actor_openai import GptActor
 
 
 with open('config/actors.yaml', 'r') as fp:
@@ -141,7 +141,8 @@ class GptJob(Job):
     }
 
 
-class GptActor(OpenaiActor):
+class XiaActor(Actor):
+    _type_base = Actor
     _job_class = GptJob
 
     _engine = GitlabProjectMilestoneEngine

@@ -1,6 +1,7 @@
 team_name: xia-team
 actors:
   - name: owner-1
+    actor_type: gpt
     default_mindset_param: '{"model": "gpt-3.5-turbo"}'
     general_level: 0
     domain: ''
@@ -9,6 +10,7 @@ actors:
     jobs: [ ]
     work_capacity: 0
   - name: worker-1
+    actor_type: gpt
     default_mindset_param: '{"model": "gpt-3.5-turbo"}'
     general_level: 0
     domain: software
@@ -17,6 +19,7 @@ actors:
     jobs: [ ]
     work_capacity: 5
   - name: reviewer-1
+    actor_type: gpt
     default_mindset_param: '{"model": "gpt-3.5-turbo"}'
     general_level: 0
     domain: ''
