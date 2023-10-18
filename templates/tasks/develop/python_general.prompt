@@ -1,6 +1,5 @@
 {% block format %}
 ```python
-# xxxx.py
 import os
 ...
 ```
