@@ -19,7 +19,7 @@ actors:
     jobs: [ ]
     work_capacity: 5
   - name: graphist-1
-    actor_type: dalle
+    actor_type: pollination
     default_mindset_param: '{"model": "gpt-3.5-turbo"}'
     general_level: 0
     domain: graphic

@@ -1,9 +1,9 @@
 - project_name: hello-world
   organization_unit: demos
   owner_name: owner-1
-  job_name: init-graphic
-  campaign_type: graphic/simple/create
+  job_name: init-project
+  campaign_type: software/python/simple/create
   runtime_variables:
-    filename: home.png
+    filename: main.py
   input_contexts:
-    workspace/original_requirements: AI collaborates with human
+    workspace/original_requirements: Create a program to print "Hello World".
