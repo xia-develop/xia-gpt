@@ -25,12 +25,13 @@ Could be totally free, so even credit card is not needed.
 
     https://github.com/x-i-a/xia-gpt/assets/128282444/653baa85-89e7-4033-9d48-ded5986ac133
 
-3. How to run the Hello-World Job without OpenAI API key
+3. Presentation of what is generated during Hello-World Job run
 
     https://github.com/x-i-a/xia-gpt/assets/128282444/ed8d38d6-2505-4764-9e3c-5da7d0c12155
 
-4. Presentation of what is generated during Hello-World Job run
+4. How to run the Hello-World Job without OpenAI API key
 
+    https://github.com/x-i-a/xia-gpt/assets/128282444/88569fe1-5609-4dc4-9067-c45f814262b4
 
 ## Product feature
 ### Highlights
