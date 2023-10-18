@@ -33,11 +33,12 @@ Could be totally free, so even credit card is not needed.
 ## Product feature
 ### Highlights
 * Much like AutoGPT, they can produce complex outputs from simple instructions using a prompt/answer mechanism.
-* It is a more powerful MetaGPT, every prompt/answer is executed by either an AI Agent or a human. The AI Agent operates in a manner similar to humans and offers a range of settings.
+* A little more than MetaGPT, every prompt/answer is executed by either an AI Agent or a human. The AI Agent operates in a manner similar to humans and offers a range of settings.
 * When a task becomes too complex for the current agent, it is escalated to a more capable agent or even a human.
 * Integration of validation and review processes enhances the accuracy of each task. When using GitLab to hold work, validation is facilitated through the CI/CD pipeline.
 * All conversations are meticulously organized. When using GitLab for storage, they are categorized as Group, Project, Issue, Milestone, Thread, and Note.
 * All expenses are accounted for. When stored in GitLab, costs are represented through time tracking.
+* Effortlessly configurable to cover all aspects and accomplish every task.
 
 
 ### Basic Function Examples
@@ -45,5 +46,23 @@ Could be totally free, so even credit card is not needed.
 
 2. Image Generation
 
-3. 
+3. Complex Execution Logic
 
+
+## Design Thinking
+A clearer understanding of `xia-gpt` design can be beneficial before delving into customization.
+### Fundamentals
+All activities could be represented by state-to-state flow.
+* State is represented as `KnowledgeMap` which consists of a lot of `KnowledgeNode` with their values
+* state-to-state must be performed by `Actor`. The `KnowledgeNode` has no ability to change itself
+* ONLY two reasons will lead to state-to-state failure: Inadequate context or weak inferential capabilities.
+  * `Campaign`, `Mission` and `Task` could help to reducing inferential difficulty while keeping the necessary context
+  * `Actor` could escalade to other `Actor` to get more inferential capacities. Human is also a kind of `Actor`
+* ONLY two criteria for judging a state-to-state failure: subjective reject or objective reject
+  * Subjective reject means the `Actor` refuses the target state. It is controlled by `Review`
+  * Objective reject means the target state isn't logically consistent. It is controlled by `Validation` 
+
+## Customizing
+### General
+* All files are under `templates` directory. Different module will load the file from their related sub-directory
+* 
