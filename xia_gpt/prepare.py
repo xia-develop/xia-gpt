@@ -48,6 +48,8 @@ def init_actors(recreate: bool = False):
         if not actor:
             new_actor = XiaActor.from_display(**actor_profile)
             new_actor.save()
+        else:
+            actor.update(**actor_profile)
 
 
 def init_jobs(recreate_target: bool = False):
