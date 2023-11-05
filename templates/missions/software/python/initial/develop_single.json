@@ -4,6 +4,9 @@
   "contexts": [
     "workspace/original_requirements"
   ],
+  "reviews": [
+    "code_review"
+  ],
   "tasks": [
     {
       "task_type": "Task",

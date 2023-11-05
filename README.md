@@ -52,11 +52,12 @@ Could be totally free, so even credit card is not needed.
 3. Complex Execution Logic
 
 
-### Basic User Guide
+### Basic Use Guide
 
 
 ## Basic Customization Guide
 A clearer understanding of `xia-gpt` design can be beneficial before delving into customization.
+
 ### Design Thinking
 All activities could be represented by state-to-state flow.
 * State is represented as `KnowledgeMap` which consists of a lot of `KnowledgeNode` with their values
@@ -67,6 +68,9 @@ All activities could be represented by state-to-state flow.
 * ONLY two criteria for judging a state-to-state failure: subjective reject or objective reject
   * Subjective reject means the `Actor` refuses the target state. It is controlled by `Review`
   * Objective reject means the target state isn't logically consistent. It is controlled by `Validation` 
+
+### Main customization steps
+
 
 ### Customization File locations
 All files are under `templates` directory. Different module will load the file from their related subdirectory.
