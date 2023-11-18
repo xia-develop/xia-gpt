@@ -1,0 +1,40 @@
+{
+  "domain": "software",
+  "skill": "product_manager",
+  "contexts": [
+    "workspace/original_requirements"
+  ],
+  "reviews": [
+    "requirement_review"
+  ],
+  "review_per_task": true,
+  "tasks": [
+    {
+      "task_type": "Task",
+      "name": "requirements/product_goals",
+      "title": "Product Goals",
+      "target": "design/general/product_goals",
+      "required_contexts": [
+        "workspace/original_requirements"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "requirements/requirement_analysis",
+      "target": "workspace/requirement_analysis",
+      "title": "Requirement Analysis",
+      "required_contexts": [
+        "workspace/original_requirements"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "requirements/user_stories",
+      "target": "workspace/user_stories",
+      "title": "User Stories",
+      "required_contexts": [
+        "design/general/product_goals"
+      ]
+    }
+  ]
+}

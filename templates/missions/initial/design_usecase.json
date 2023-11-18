@@ -8,8 +8,7 @@
     "workspace/original_requirements",
     "workspace/implement_approach",
     "design/general/data_structures_and_interface_definitions",
-    "design/general/usecase_list",
-    "design/general/python_module_list"
+    "design/general/usecase_list"
   ],
   "tasks": [
     {
@@ -25,8 +24,7 @@
         "workspace/original_requirements",
         "workspace/implement_approach",
         "design/general/data_structures_and_interface_definitions",
-        "design/general/usecase_list",
-        "design/general/python_module_list"
+        "design/general/usecase_list"
       ]
     },
     {
@@ -42,8 +40,7 @@
         "workspace/original_requirements",
         "workspace/implement_approach",
         "design/general/data_structures_and_interface_definitions",
-        "design/general/usecase_list",
-        "design/general/python_module_list"
+        "design/general/usecase_list"
       ]
     },
     {
@@ -53,8 +50,7 @@
       "required_contexts": [
         "design/general/data_structures_and_interface_definitions",
         "design/usecases/{{ usecase }}/program_call_flow",
-        "design/usecases/{{ usecase }}/implement_approach",
-        "design/general/python_module_list"
+        "design/usecases/{{ usecase }}/implement_approach"
       ]
     }
   ]

@@ -1,0 +1,12 @@
+{
+  "domain": "software",
+  "skill": "product_manager",
+  "tasks": [
+    {
+      "type": "Task",
+      "name": "reviews/clear_requirement",
+      "title": "Clear Requirement"
+    }
+  ],
+  "pass_criteria": "All requirements is clear"
+}

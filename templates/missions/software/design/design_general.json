@@ -1,0 +1,48 @@
+{
+  "domain": "software",
+  "skill": "architect",
+  "contexts": [
+    "design/general/product_goals",
+    "workspace/user_stories",
+    "workspace/requirement_analysis",
+    "workspace/original_requirements"
+  ],
+  "tasks": [
+    {
+      "task_type": "Task",
+      "name": "design/general/implement_approach",
+      "title": "Implement Approach",
+      "target": "workspace/implement_approach",
+      "required_contexts": [
+        "design/general/product_goals",
+        "workspace/user_stories",
+        "workspace/requirement_analysis",
+        "workspace/original_requirements"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "design/general/data_structures_and_interface_definitions",
+      "title": "Data Structures And Interface Definitions",
+      "required_contexts": [
+        "design/general/product_goals",
+        "workspace/implement_approach",
+        "workspace/user_stories",
+        "workspace/requirement_analysis",
+        "workspace/original_requirements"
+      ]
+    },
+    {
+      "task_type": "Task",
+      "name": "design/general/usecase_list",
+      "title": "Use Case List",
+      "required_contexts": [
+        "design/general/product_goals",
+        "workspace/implement_approach",
+        "workspace/user_stories",
+        "workspace/requirement_analysis",
+        "workspace/original_requirements"
+      ]
+    }
+  ]
+}

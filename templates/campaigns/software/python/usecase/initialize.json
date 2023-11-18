@@ -3,7 +3,7 @@
     "requirement_analysis": {
       "stack": "full",
       "type": "mission",
-      "mission_type": "initial/requirement_analysis",
+      "mission_type": "software/design/requirement_analysis",
       "upstream_steps": []
     },
     "design_general": {
@@ -36,4 +36,5 @@
       "upstream_steps": ["design_usecase_{{ loop.index }}"]
     }{{ ", " if not loop.last else "" }}
     {% endfor %}
-c
+  }
+}

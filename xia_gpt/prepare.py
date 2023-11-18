@@ -76,6 +76,7 @@ def init_jobs(recreate_target: bool = False):
                             owner=job_profile["owner_name"], campaign_type=job_profile["campaign_type"],
                             campaign_contexts=job_profile.get("campaign_contexts", []),
                             runtime_variables=job_profile.get("runtime_variables", {}),
+                            skip_reviews=job_profile.get("skip_reviews", []),
                             description=job_profile["job_name"]).save()
                 owner = XiaActor.load(name=job_profile["owner_name"])
                 if not owner:

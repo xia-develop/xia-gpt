@@ -23,8 +23,8 @@ Complete code with triple quote, based on the given list and given context.
 2. Do not add extra programs other than the requested ones
 3. Class of each program must respect the given module list.
 ----
-{% for code in codes %}
-## {{ code.title }}
-{{ code.content }}
+{% for format in formats %}
+## {{ format.title }}
+{{ format.content }}
 
 {% endfor %}

@@ -2,9 +2,9 @@
   organization_unit: games
   owner_name: owner-1
   reviewers:
-    requirement_review:
+    code_review:
       - reviewer-1
   job_name: init-project
-  campaign_type: software/design/initialize
+  campaign_type: software/python/usecase/initialize
   input_contexts:
     workspace/original_requirements: Create a game whose name is `Snake CLI`. Snake CLI is a command-line version of the classic arcade game "Snake."

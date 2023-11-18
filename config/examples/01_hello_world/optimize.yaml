@@ -1,6 +1,11 @@
 - project_name: hello-world
   organization_unit: demos
   owner_name: owner-1
+  reviewers:
+    code_review:
+      - reviewer-1
+  skip_reviews:
+    - code_review
   job_name: optimize-project
   campaign_type: software/python/simple/optimize
   runtime_variables:

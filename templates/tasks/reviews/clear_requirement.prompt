@@ -1,0 +1,11 @@
+{% block format %}
+```python
+[
+    ("Point xxx is not clear ...", "P0")
+]
+```
+{% endblock %}
+
+{% block guide %}
+Based on the analyzed requirements, please list the elements which seems to be not clear, Provided as Python list[str, str], the parameters are the points which are not clear, priority(P0/P1/P2)
+{% endblock %}
