@@ -1,4 +1,4 @@
-name: Windows Run Initial
+name: 001 - Windows Run Initial
 
 on:
   workflow_dispatch:

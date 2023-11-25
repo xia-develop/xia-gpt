@@ -1,10 +1,13 @@
-- project_name: snake-cli
-  organization_unit: games
+- project_name: hello-world
+  organization_unit: demos
   owner_name: owner-1
   reviewers:
-    requirement_review:
+    code_review:
       - reviewer-1
+  skip_reviews: []
   job_name: init-project
-  campaign_type: software/design/initialize
+  campaign_type: software/python/simple/create
+  runtime_variables:
+    filename: main.py
   input_contexts:
-    workspace/original_requirements: Create a game whose name is `Snake CLI`. Snake CLI is a command-line version of the classic arcade game "Snake."
+    workspace/original_requirements: Create a program to print "Hello World".

@@ -1,4 +1,4 @@
-name: Windows Single Round Run
+name: 010 - Windows Single Round Run
 
 on:
   workflow_dispatch:

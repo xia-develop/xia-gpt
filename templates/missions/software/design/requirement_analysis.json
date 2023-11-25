@@ -7,7 +7,7 @@
   "reviews": [
     "requirement_review"
   ],
-  "review_per_task": true,
+  "review_per_task": false,
   "tasks": [
     {
       "task_type": "Task",
