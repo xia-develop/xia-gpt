@@ -5,6 +5,12 @@
 
 {% endfor %}
 
+{% for code in codes %}
+## {{ code.title }}
+{{ code.content }}
+
+{% endfor %}
+
 # Instruction
 ----
 Role: {{ actor_role }}
