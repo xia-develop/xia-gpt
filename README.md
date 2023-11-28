@@ -45,9 +45,12 @@ Could be totally free, so even credit card is not needed.
 
 
 ### Basic Function Examples
-1. Code Maintenance
+1. Image Generation
 
-2. Image Generation
+    https://github.com/x-i-a/xia-gpt/assets/128282444/297b47ee-200b-41e3-a968-c237d839419b
+
+2. Code Maintenance
+
 
 3. Complex Execution Logic
 
