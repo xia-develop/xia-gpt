@@ -28,7 +28,8 @@ actors:
     jobs: [ ]
     work_capacity: 5
   - name: reviewer-1
-    actor_type: manual
+    actor_type: gpt
+    default_mindset_param: '{"model": "gpt-3.5-turbo"}'
     general_level: 0
     domain: ''
     review_capacity: 3
