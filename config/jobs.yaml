@@ -4,11 +4,10 @@
   reviewers:
     code_review:
       - reviewer-1
-  skip_reviews:
-    - code_review
-  job_name: optimize-project
-  campaign_type: software/python/simple/optimize
+  skip_reviews: []
+  job_name: init-project
+  campaign_type: software/python/simple/create
   runtime_variables:
     filename: main.py
   input_contexts:
-    workspace/original_requirements: Print an extra message "Hi World".
+    workspace/original_requirements: Create a program to print "Hello World".
