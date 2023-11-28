@@ -4,8 +4,7 @@
   reviewers:
     code_review:
       - reviewer-1
-  skip_reviews:
-    - code_review
+  skip_reviews: []
   job_name: init-project
   campaign_type: software/python/simple/create
   runtime_variables:
